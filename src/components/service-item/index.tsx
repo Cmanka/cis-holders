@@ -5,7 +5,7 @@ const ServiceItem = ({service, logo}: ServiceItemProps) => {
   return (
     <View style={styles.item}>
       <Text style={styles.title}>{service}</Text>
-      <Image source={logo} style={styles.image} />
+      {logo && <Image source={logo} style={styles.image} />}
     </View>
   );
 };
