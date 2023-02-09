@@ -1,11 +1,11 @@
 import React from 'react';
-import {Text, View} from 'react-native';
-import {GlobalStyles} from './styles';
+import {NavigationContainer} from '@react-navigation/native';
+import {DrawerRouter} from 'routers/drawer';
 
 export const App = () => {
   return (
-    <View style={GlobalStyles.container}>
-      <Text>Hello World!</Text>
-    </View>
+    <NavigationContainer>
+      <DrawerRouter />
+    </NavigationContainer>
   );
 };
