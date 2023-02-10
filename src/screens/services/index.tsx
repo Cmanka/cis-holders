@@ -29,9 +29,7 @@ export const ServicesScreen = () => {
     <SafeAreaView style={styles.container}>
       <SectionList
         sections={services}
-        keyExtractor={({title, description}, index) =>
-          `${title}${description}${index}`
-        }
+        keyExtractor={({id}) => id}
         renderItem={({item: {title}}) => <ServiceItem service={title} />}
         renderSectionHeader={({section: {type}}) => (
           <ServiceItemHeader title={type} />

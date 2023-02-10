@@ -1,11 +1,11 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {DrawerRouter} from 'routers/drawer';
+import {Router} from 'routers';
 
 export const App = () => {
   return (
     <NavigationContainer>
-      <DrawerRouter />
+      <Router />
     </NavigationContainer>
   );
 };

@@ -26,10 +26,11 @@ class ServiceClass {
     const services: Map<ServiceType, ServiceData[]> = new Map();
     query.forEach(snapshot => {
       const {type, ...data} = snapshot.data() as FirebaseServiceResult;
+      const id = snapshot.id;
       if (services.get(type)) {
-        services.get(type)!.push(data);
+        services.get(type)!.push({...data, id});
       } else {
-        services.set(type, [data]);
+        services.set(type, [{...data, id}]);
       }
     });
 
