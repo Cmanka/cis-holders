@@ -1,21 +1,19 @@
 import {ActivityIndicator, SafeAreaView, SectionList} from 'react-native';
 import {ServiceItem, ServiceItemHeader} from 'components/service-item';
 import {styles} from './styles';
-import {useService} from 'services/service';
-import {useEffect, useState} from 'react';
-import {Service} from 'interfaces/service';
+import {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {fetchService} from 'store/actions/service';
+import {selectService} from 'store/selectors/service';
 
 export const ServicesScreen = () => {
-  const [services, setServices] = useState<Service[]>([]);
-  const [loading, setLoading] = useState(true);
-  const {getServices} = useService();
+  const dispatch = useDispatch();
+  const {data, loading} = useSelector(selectService);
 
   useEffect(() => {
-    getServices()
-      .then(setServices)
-      .finally(() => setLoading(false));
-  }, [getServices]);
-
+    dispatch(fetchService());
+  }, [dispatch]);
+  console.log(data);
   if (loading) {
     return (
       <ActivityIndicator
@@ -28,7 +26,7 @@ export const ServicesScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <SectionList
-        sections={services}
+        sections={data}
         keyExtractor={({id}) => id}
         renderItem={({item: {title}}) => <ServiceItem service={title} />}
         renderSectionHeader={({section: {type}}) => (

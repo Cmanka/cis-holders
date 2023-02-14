@@ -17,8 +17,10 @@ class ServiceClass {
     this.getServices = this.getServices.bind(this);
   }
 
-  public addService(service: Service) {
+  public addService(service: Service): Service {
     this.instance.add(service);
+
+    return service;
   }
 
   public async getServices(): Promise<Service[]> {
@@ -45,6 +47,4 @@ class ServiceClass {
   }
 }
 
-const serviceInstance = new ServiceClass();
-
-export const useService = () => serviceInstance;
+export const serviceInstance = new ServiceClass();

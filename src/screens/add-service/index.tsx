@@ -1,18 +1,21 @@
-import {View, Button} from 'react-native';
+import {View, Button, ActivityIndicator, Text} from 'react-native';
 import {useForm} from 'react-hook-form';
 import {Service} from 'interfaces/service';
 import {Input} from 'components/input';
-import {useService} from 'services/service';
 import {styles} from './styles';
 import {Select} from 'components/select';
 import {ServiceType} from 'constants/service-type';
+import {useDispatch, useSelector} from 'react-redux';
+import {addService} from 'store/actions/service';
+import {selectService} from 'store/selectors/service';
 
 export const AddServiceScreen = () => {
+  const dispatch = useDispatch();
+  const {loading, error} = useSelector(selectService);
   const {control, handleSubmit} = useForm<Service>();
-  const {addService} = useService();
 
   const onSubmit = handleSubmit(data => {
-    addService(data);
+    dispatch(addService(data));
   });
 
   return (
@@ -30,9 +33,20 @@ export const AddServiceScreen = () => {
           values={Object.values(ServiceType)}
         />
       </View>
-      <View style={styles.button}>
-        <Button title="add service" onPress={onSubmit} />
-      </View>
+      {loading ? (
+        <ActivityIndicator />
+      ) : (
+        <View style={styles.button}>
+          <Button title="add service" onPress={onSubmit} />
+        </View>
+      )}
+      {error && (
+        <View style={styles.outerWrapper}>
+          <Text style={{color: 'red', textAlign: 'center', marginTop: 20}}>
+            Error: {error}
+          </Text>
+        </View>
+      )}
     </View>
   );
 };
