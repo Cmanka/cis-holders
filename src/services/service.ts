@@ -1,18 +1,12 @@
 import firestore from '@react-native-firebase/firestore';
-import {Service, ServiceData} from 'interfaces/service';
-import {ServiceType} from 'constants/service-type';
-
-interface FirebaseServiceResult {
-  type: ServiceType;
-  title: string;
-  description: string;
-}
+import {Service} from 'interfaces/service';
+import {FirebaseCollection} from 'constants/firebase-collection';
 
 class ServiceClass {
   private instance;
 
   constructor() {
-    this.instance = firestore().collection('services');
+    this.instance = firestore().collection(FirebaseCollection.Services);
     this.addService = this.addService.bind(this);
     this.getServices = this.getServices.bind(this);
   }
@@ -25,25 +19,15 @@ class ServiceClass {
 
   public async getServices(): Promise<Service[]> {
     const query = await this.instance.get();
-    const services: Map<ServiceType, ServiceData[]> = new Map();
+    const services: Service[] = [];
     query.forEach(snapshot => {
-      const {type, ...data} = snapshot.data() as FirebaseServiceResult;
+      const data = snapshot.data() as Service;
       const id = snapshot.id;
-      if (services.get(type)) {
-        services.get(type)!.push({...data, id});
-      } else {
-        services.set(type, [{...data, id}]);
-      }
+
+      services.push({...data, id});
     });
 
-    if (!services.size) {
-      return [];
-    }
-
-    return Array.from(services.entries()).map(([type, data]) => ({
-      type,
-      data,
-    }));
+    return services;
   }
 }
 

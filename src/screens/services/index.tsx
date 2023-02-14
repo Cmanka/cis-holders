@@ -4,16 +4,16 @@ import {styles} from './styles';
 import {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchService} from 'store/actions/service';
-import {selectService} from 'store/selectors/service';
+import {selectServiceSectionList} from 'store/selectors/service';
 
 export const ServicesScreen = () => {
   const dispatch = useDispatch();
-  const {data, loading} = useSelector(selectService);
+  const {data, loading} = useSelector(selectServiceSectionList);
 
   useEffect(() => {
     dispatch(fetchService());
   }, [dispatch]);
-  console.log(data);
+
   if (loading) {
     return (
       <ActivityIndicator

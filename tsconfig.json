@@ -8,8 +8,13 @@
       "screens/*": ["src/screens/*"],
       "components/*": ["src/components/*"],
       "routers/*": ["src/routers/*"],
-      "app/*": ["src/app/*"],
-      "assets/*": ["src/assets/*"]
+      "assets/*": ["src/assets/*"],
+      "interfaces/*": ["src/interfaces/*"],
+      "services/*": ["src/services/*"],
+      "store/*": ["src/store/*"],
+      "lib/*": ["src/lib/*"],
+      "styles/*": ["src/styles/*"],
+      "constants/*": ["src/constants/*"]
     }
   }
 }

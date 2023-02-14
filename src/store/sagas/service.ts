@@ -9,16 +9,18 @@ import {
 import {Service} from 'interfaces/service';
 import {AddServicePayload, ServiceTypes} from 'store/types/service';
 import {Action} from 'interfaces/action';
+import {getErrorMessage} from 'lib/get-error-message';
+import {QUERY_DELAY} from 'constants/query-delay';
 
 function* fetchServicesWorker() {
   try {
+    yield delay(QUERY_DELAY);
     const data: Service[] = yield call(serviceInstance.getServices);
     yield put(fetchServicesSuccess(data));
   } catch (error) {
-    if (error instanceof Error) {
-      yield put(fetchServicesFailed(error.message));
-    }
-    yield put(fetchServicesFailed('Unexpected error'));
+    const errorMessage = getErrorMessage(error);
+
+    yield put(fetchServicesFailed(errorMessage));
   }
 }
 
@@ -26,17 +28,16 @@ function* addServiceWorker(
   service: Action<ServiceTypes.AddService, AddServicePayload>,
 ) {
   try {
-    delay(1000);
+    yield delay(QUERY_DELAY);
     const data: Service = yield call(
       serviceInstance.addService,
       service.payload.service,
     );
     yield put(addServiceSuccess(data));
   } catch (error) {
-    if (error instanceof Error) {
-      yield put(addServiceFailed(error.message));
-    }
-    yield put(addServiceFailed('Unexpected error'));
+    const errorMessage = getErrorMessage(error);
+
+    yield put(addServiceFailed(errorMessage));
   }
 }
 

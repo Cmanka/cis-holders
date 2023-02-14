@@ -1,12 +1,8 @@
 import {ServiceType} from 'constants/service-type';
 
-export interface ServiceData {
+export interface Service {
   id: string;
   title: string;
   description: string;
-}
-
-export interface Service {
   type: ServiceType;
-  data: ServiceData[];
 }
