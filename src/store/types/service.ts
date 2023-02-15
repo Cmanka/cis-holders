@@ -1,6 +1,6 @@
-import {Service} from 'interfaces/service';
-import {Action} from 'interfaces/action';
-import {Status} from 'interfaces/status';
+import { Service } from 'interfaces/service';
+import { Action } from 'interfaces/action';
+import { Status } from 'interfaces/status';
 
 export enum ServiceTypes {
   FetchServices = 'FETCH_SERVICES',

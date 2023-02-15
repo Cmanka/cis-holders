@@ -1,4 +1,4 @@
-import {DrawerRouter} from './drawer';
+import { DrawerRouter } from './drawer';
 
 export const Router = () => {
   return <DrawerRouter />;

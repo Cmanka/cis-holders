@@ -1,16 +1,11 @@
-import {call, delay, takeLatest, put} from 'redux-saga/effects';
-import {serviceInstance} from 'services/service';
-import {
-  addServiceFailed,
-  addServiceSuccess,
-  fetchServicesFailed,
-  fetchServicesSuccess,
-} from 'store/actions/service';
-import {Service} from 'interfaces/service';
-import {AddServicePayload, ServiceTypes} from 'store/types/service';
-import {Action} from 'interfaces/action';
-import {getErrorMessage} from 'lib/get-error-message';
-import {QUERY_DELAY} from 'constants/query-delay';
+import { call, delay, takeLatest, put } from 'redux-saga/effects';
+import { serviceInstance } from 'services/service';
+import { addServiceFailed, addServiceSuccess, fetchServicesFailed, fetchServicesSuccess } from 'store/actions/service';
+import { Service } from 'interfaces/service';
+import { AddServicePayload, ServiceTypes } from 'store/types/service';
+import { Action } from 'interfaces/action';
+import { getErrorMessage } from 'lib/get-error-message';
+import { QUERY_DELAY } from 'constants/query-delay';
 
 function* fetchServicesWorker() {
   try {
@@ -24,15 +19,10 @@ function* fetchServicesWorker() {
   }
 }
 
-function* addServiceWorker(
-  service: Action<ServiceTypes.AddService, AddServicePayload>,
-) {
+function* addServiceWorker(service: Action<ServiceTypes.AddService, AddServicePayload>) {
   try {
     yield delay(QUERY_DELAY);
-    const data: Service = yield call(
-      serviceInstance.addService,
-      service.payload.service,
-    );
+    const data: Service = yield call(serviceInstance.addService, service.payload.service);
     yield put(addServiceSuccess(data));
   } catch (error) {
     const errorMessage = getErrorMessage(error);

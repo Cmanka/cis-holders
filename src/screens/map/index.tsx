@@ -1,5 +1,5 @@
-import {View} from 'react-native';
-import MapView, {Marker} from 'react-native-maps';
+import { View } from 'react-native';
+import MapView, { Marker } from 'react-native-maps';
 
 const points = [
   {
@@ -16,16 +16,17 @@ const points = [
 
 export const MapScreen = () => {
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       <MapView
-        style={{height: '100%'}}
+        style={{ height: '100%' }}
         initialRegion={{
           latitude: 55.1939784,
           longitude: 30.1948941,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
-        }}>
-        {points.map(({title, ...coordinates}) => (
+        }}
+      >
+        {points.map(({ title, ...coordinates }) => (
           <Marker key={title} title={title} coordinate={coordinates} />
         ))}
       </MapView>

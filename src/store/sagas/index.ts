@@ -1,6 +1,6 @@
-import {all, fork} from 'redux-saga/effects';
+import { all, fork } from 'redux-saga/effects';
 
-import {serviceWatcher} from './service';
+import { serviceWatcher } from './service';
 
 export function* rootSaga() {
   yield all([fork(serviceWatcher)]);

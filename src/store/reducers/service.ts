@@ -1,6 +1,6 @@
-import {Service} from 'interfaces/service';
-import {ServiceAction, ServiceTypes} from 'store/types/service';
-import {Status} from 'interfaces/status';
+import { Service } from 'interfaces/service';
+import { ServiceAction, ServiceTypes } from 'store/types/service';
+import { Status } from 'interfaces/status';
 
 interface ServiceState {
   data: Service[];
@@ -16,13 +16,10 @@ const initialState: ServiceState = {
   formStatus: 'pending',
 };
 
-export const serviceReducer = (
-  state: ServiceState = initialState,
-  action: ServiceAction,
-): ServiceState => {
+export const serviceReducer = (state: ServiceState = initialState, action: ServiceAction): ServiceState => {
   switch (action.type) {
     case ServiceTypes.FetchServices: {
-      return {...state, loading: true};
+      return { ...state, loading: true };
     }
     case ServiceTypes.FetchServicesSuccess: {
       return {
@@ -33,10 +30,10 @@ export const serviceReducer = (
       };
     }
     case ServiceTypes.FetchServicesFailed: {
-      return {...state, loading: false, error: action.payload.error};
+      return { ...state, loading: false, error: action.payload.error };
     }
     case ServiceTypes.AddService: {
-      return {...state, loading: true, formStatus: 'pending'};
+      return { ...state, loading: true, formStatus: 'pending' };
     }
     case ServiceTypes.AddServiceSuccess: {
       return {

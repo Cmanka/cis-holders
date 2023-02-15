@@ -1,29 +1,22 @@
-import {
-  View,
-  ScrollView,
-  Button,
-  ActivityIndicator,
-  Text,
-  Alert,
-} from 'react-native';
-import {useForm} from 'react-hook-form';
-import {Input} from 'components/input';
-import {styles} from './styles';
-import {Select} from 'components/select';
-import {ServiceType} from 'constants/service-type';
-import {useDispatch, useSelector} from 'react-redux';
-import {addService, changeFormStatus} from 'store/actions/service';
-import {selectService} from 'store/selectors/service';
-import {Attachment} from 'components/attachment';
-import {Service} from 'interfaces/service';
-import {useEffect} from 'react';
+import { View, ScrollView, Button, ActivityIndicator, Text, Alert } from 'react-native';
+import { useForm } from 'react-hook-form';
+import { Input } from 'components/input';
+import { styles } from './styles';
+import { Select } from 'components/select';
+import { ServiceType } from 'constants/service-type';
+import { useDispatch, useSelector } from 'react-redux';
+import { addService, changeFormStatus } from 'store/actions/service';
+import { selectService } from 'store/selectors/service';
+import { Attachment } from 'components/attachment';
+import { Service } from 'interfaces/service';
+import { useEffect } from 'react';
 
 export const AddServiceScreen = () => {
   const dispatch = useDispatch();
-  const {loading, error, formStatus} = useSelector(selectService);
-  const {control, reset, handleSubmit} = useForm<Service>();
+  const { loading, error, formStatus } = useSelector(selectService);
+  const { control, reset, handleSubmit } = useForm<Service>();
 
-  const onSubmit = handleSubmit(data => {
+  const onSubmit = handleSubmit((data) => {
     dispatch(addService(data));
   });
 
@@ -44,11 +37,7 @@ export const AddServiceScreen = () => {
         <Input name="description" control={control} />
       </View>
       <View style={styles.outerWrapper}>
-        <Select
-          name="type"
-          control={control}
-          values={Object.values(ServiceType)}
-        />
+        <Select name="type" control={control} values={Object.values(ServiceType)} />
       </View>
       <View style={styles.outerWrapper}>
         <Attachment control={control} name="imageUri" />
@@ -62,9 +51,7 @@ export const AddServiceScreen = () => {
       )}
       {error && (
         <View style={styles.outerWrapper}>
-          <Text style={{color: 'red', textAlign: 'center', marginTop: 20}}>
-            Error: {error}
-          </Text>
+          <Text style={{ color: 'red', textAlign: 'center', marginTop: 20 }}>Error: {error}</Text>
         </View>
       )}
     </ScrollView>

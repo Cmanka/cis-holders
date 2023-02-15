@@ -1,6 +1,6 @@
-import {createStackNavigator} from '@react-navigation/stack';
-import {BottomTabRouter} from 'routers/bottom-tab';
-import {DrawerRouter} from 'routers/drawer';
+import { createStackNavigator } from '@react-navigation/stack';
+import { BottomTabRouter } from 'routers/bottom-tab';
+import { DrawerRouter } from 'routers/drawer';
 
 const Stack = createStackNavigator();
 

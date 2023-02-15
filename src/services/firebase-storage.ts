@@ -1,5 +1,5 @@
 import storage from '@react-native-firebase/storage';
-import {getFilenameFromUri} from 'lib/get-filename-from-uri';
+import { getFilenameFromUri } from 'lib/get-filename-from-uri';
 
 class FirebaseStorage {
   public async addSource(uri: string) {

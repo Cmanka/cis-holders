@@ -1,4 +1,4 @@
-import {Control, FieldValue, FieldValues} from 'react-hook-form';
+import { Control, FieldValue, FieldValues } from 'react-hook-form';
 
 export interface InputProps {
   name: string;

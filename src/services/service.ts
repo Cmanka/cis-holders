@@ -1,10 +1,10 @@
 import firestore from '@react-native-firebase/firestore';
-import {Service} from 'interfaces/service';
-import {FirebaseCollection} from 'constants/firebase-collection';
-import {firebaseStorageInstance} from 'services/firebase-storage';
+import { Service } from 'interfaces/service';
+import { FirebaseCollection } from 'constants/firebase-collection';
+import { firebaseStorageInstance } from 'services/firebase-storage';
 
 class ServiceClass {
-  private instance;
+  private readonly instance;
 
   constructor() {
     this.instance = firestore().collection(FirebaseCollection.Services);
@@ -14,13 +14,11 @@ class ServiceClass {
 
   public async addService(service: Service) {
     try {
-      const fileName = await firebaseStorageInstance.addSource(
-        service.imageUri,
-      );
+      const fileName = await firebaseStorageInstance.addSource(service.imageUri);
       const imageUri = await firebaseStorageInstance.getSource(fileName);
-      const response = await this.instance.add({...service, imageUri});
+      const response = await this.instance.add({ ...service, imageUri });
 
-      return {...service, id: response.id};
+      return { ...service, id: response.id };
     } catch (e) {
       throw new Error('Cannot add service');
     }
@@ -29,11 +27,11 @@ class ServiceClass {
   public async getServices(): Promise<Service[]> {
     const query = await this.instance.get();
     const services: Service[] = [];
-    query.forEach(snapshot => {
+    query.forEach((snapshot) => {
       const data = snapshot.data() as Service;
       const id = snapshot.id;
 
-      services.push({...data, id});
+      services.push({ ...data, id });
     });
 
     return services;

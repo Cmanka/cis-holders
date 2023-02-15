@@ -1,4 +1,4 @@
-import {ServiceType} from 'constants/service-type';
+import { ServiceType } from 'constants/service-type';
 
 export interface ServiceSectionListData {
   id: string;
