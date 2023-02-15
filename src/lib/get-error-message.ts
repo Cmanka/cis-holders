@@ -1,7 +1,10 @@
-export const getErrorMessage = (error: unknown) => {
+export const getErrorMessage = (
+  error: unknown,
+  unexpected: string = 'Unexpected error',
+) => {
   if (error instanceof Error) {
     return error.message;
   }
 
-  return 'Unexpected error';
+  return unexpected;
 };

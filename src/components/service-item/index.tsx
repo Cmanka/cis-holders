@@ -1,11 +1,11 @@
 import {Image, Text, View} from 'react-native';
 import {ServiceItemHeaderProps, ServiceItemProps} from './types';
 import {styles} from './styles';
-const ServiceItem = ({service, logo}: ServiceItemProps) => {
+const ServiceItem = ({title, imageUri}: ServiceItemProps) => {
   return (
     <View style={styles.item}>
-      <Text style={styles.title}>{service}</Text>
-      {logo && <Image source={logo} style={styles.image} />}
+      <Text style={styles.title}>{title}</Text>
+      <Image source={{uri: imageUri}} style={styles.image} />
     </View>
   );
 };

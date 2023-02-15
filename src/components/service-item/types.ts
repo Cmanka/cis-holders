@@ -1,8 +1,6 @@
-import {ImageSourcePropType} from 'react-native';
-
 export interface ServiceItemProps {
-  service: string;
-  logo?: ImageSourcePropType;
+  title: string;
+  imageUri: string;
 }
 
 export interface ServiceItemHeaderProps {

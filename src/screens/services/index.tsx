@@ -28,7 +28,9 @@ export const ServicesScreen = () => {
       <SectionList
         sections={data}
         keyExtractor={({id}) => id}
-        renderItem={({item: {title}}) => <ServiceItem service={title} />}
+        renderItem={({item: {title, imageUri}}) => (
+          <ServiceItem title={title} imageUri={imageUri} />
+        )}
         renderSectionHeader={({section: {type}}) => (
           <ServiceItemHeader title={type} />
         )}

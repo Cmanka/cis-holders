@@ -1,16 +1,19 @@
 import {Service} from 'interfaces/service';
 import {ServiceAction, ServiceTypes} from 'store/types/service';
+import {Status} from 'interfaces/status';
 
 interface ServiceState {
   data: Service[];
   loading: boolean;
   error: string;
+  formStatus: Status;
 }
 
 const initialState: ServiceState = {
   data: [],
   loading: false,
   error: '',
+  formStatus: 'pending',
 };
 
 export const serviceReducer = (
@@ -33,18 +36,30 @@ export const serviceReducer = (
       return {...state, loading: false, error: action.payload.error};
     }
     case ServiceTypes.AddService: {
-      return {...state, loading: true};
+      return {...state, loading: true, formStatus: 'pending'};
     }
     case ServiceTypes.AddServiceSuccess: {
       return {
         ...state,
         loading: false,
         error: '',
+        formStatus: 'success',
         data: [...state.data, action.payload.service],
       };
     }
     case ServiceTypes.AddServiceFailed: {
-      return {...state, loading: false, error: action.payload.error};
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+        formStatus: 'error',
+      };
+    }
+    case ServiceTypes.ChangeStatus: {
+      return {
+        ...state,
+        formStatus: action.payload.status,
+      };
     }
     default: {
       return state;

@@ -1,25 +1,42 @@
-import {View, Button, ActivityIndicator, Text} from 'react-native';
+import {
+  View,
+  ScrollView,
+  Button,
+  ActivityIndicator,
+  Text,
+  Alert,
+} from 'react-native';
 import {useForm} from 'react-hook-form';
-import {Service} from 'interfaces/service';
 import {Input} from 'components/input';
 import {styles} from './styles';
 import {Select} from 'components/select';
 import {ServiceType} from 'constants/service-type';
 import {useDispatch, useSelector} from 'react-redux';
-import {addService} from 'store/actions/service';
+import {addService, changeFormStatus} from 'store/actions/service';
 import {selectService} from 'store/selectors/service';
+import {Attachment} from 'components/attachment';
+import {Service} from 'interfaces/service';
+import {useEffect} from 'react';
 
 export const AddServiceScreen = () => {
   const dispatch = useDispatch();
-  const {loading, error} = useSelector(selectService);
-  const {control, handleSubmit} = useForm<Service>();
+  const {loading, error, formStatus} = useSelector(selectService);
+  const {control, reset, handleSubmit} = useForm<Service>();
 
   const onSubmit = handleSubmit(data => {
     dispatch(addService(data));
   });
 
+  useEffect(() => {
+    if (formStatus === 'success') {
+      dispatch(changeFormStatus('pending'));
+      reset();
+      Alert.alert('Add service form', 'Successfully added');
+    }
+  }, [dispatch, formStatus, reset]);
+
   return (
-    <View style={styles.wrapper}>
+    <ScrollView contentContainerStyle={styles.wrapper}>
       <View style={styles.outerWrapper}>
         <Input name="title" control={control} />
       </View>
@@ -32,6 +49,9 @@ export const AddServiceScreen = () => {
           control={control}
           values={Object.values(ServiceType)}
         />
+      </View>
+      <View style={styles.outerWrapper}>
+        <Attachment control={control} name="imageUri" />
       </View>
       {loading ? (
         <ActivityIndicator />
@@ -47,6 +67,6 @@ export const AddServiceScreen = () => {
           </Text>
         </View>
       )}
-    </View>
+    </ScrollView>
   );
 };

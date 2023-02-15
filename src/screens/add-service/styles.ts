@@ -4,9 +4,8 @@ export const styles = StyleSheet.create({
   wrapper: {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
     alignItems: 'center',
-    margin: 20,
+    padding: 20,
   },
   outerWrapper: {
     width: '100%',

@@ -5,6 +5,7 @@ import {
 } from 'store/types/service';
 import {Action} from 'interfaces/action';
 import {Service} from 'interfaces/service';
+import {Status} from 'interfaces/status';
 
 export const fetchService = (): Action<ServiceTypes.FetchServices> => ({
   type: ServiceTypes.FetchServices,
@@ -44,4 +45,11 @@ export const addServiceFailed = (
 ): Action<ServiceTypes.AddServiceFailed> => ({
   type: ServiceTypes.AddServiceFailed,
   payload: {error},
+});
+
+export const changeFormStatus = (
+  status: Status,
+): Action<ServiceTypes.ChangeStatus> => ({
+  type: ServiceTypes.ChangeStatus,
+  payload: {status},
 });

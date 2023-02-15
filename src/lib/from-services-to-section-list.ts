@@ -8,15 +8,15 @@ export const fromServicesToSectionList = (
     return [];
   }
 
-  return services.reduce((list, {type, id, title}) => {
+  return services.reduce((list, {type, id, title, imageUri}) => {
     const existedTypeIndex = list.findIndex(service => service.type === type);
 
     if (existedTypeIndex !== -1) {
-      list[existedTypeIndex].data.push({id, title});
+      list[existedTypeIndex].data.push({id, title, imageUri});
     } else {
       list.push({
         type,
-        data: [{id, title}],
+        data: [{id, title, imageUri}],
       });
     }
 

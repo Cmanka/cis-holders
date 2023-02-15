@@ -1,5 +1,6 @@
 import {Service} from 'interfaces/service';
 import {Action} from 'interfaces/action';
+import {Status} from 'interfaces/status';
 
 export enum ServiceTypes {
   FetchServices = 'FETCH_SERVICES',
@@ -8,6 +9,7 @@ export enum ServiceTypes {
   AddService = 'ADD_SERVICE',
   AddServiceSuccess = 'ADD_SERVICE_SUCCESS',
   AddServiceFailed = 'ADD_SERVICE_FAILED',
+  ChangeStatus = 'CHANGE_STATUS',
 }
 
 export interface FetchServiceSuccessPayload {
@@ -30,10 +32,15 @@ export interface AddServiceFailedPayload {
   error: string;
 }
 
+export interface ChangeStatusPayload {
+  status: Status;
+}
+
 export type ServiceAction =
   | Action<ServiceTypes.FetchServices>
   | Action<ServiceTypes.FetchServicesSuccess, FetchServiceSuccessPayload>
   | Action<ServiceTypes.FetchServicesFailed, FetchServiceFailedPayload>
   | Action<ServiceTypes.AddService, AddServicePayload>
   | Action<ServiceTypes.AddServiceSuccess, AddServiceSuccessPayload>
-  | Action<ServiceTypes.AddServiceFailed, AddServiceFailedPayload>;
+  | Action<ServiceTypes.AddServiceFailed, AddServiceFailedPayload>
+  | Action<ServiceTypes.ChangeStatus, ChangeStatusPayload>;

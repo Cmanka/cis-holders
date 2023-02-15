@@ -1,6 +1,7 @@
 import firestore from '@react-native-firebase/firestore';
 import {Service} from 'interfaces/service';
 import {FirebaseCollection} from 'constants/firebase-collection';
+import {firebaseStorageInstance} from 'services/firebase-storage';
 
 class ServiceClass {
   private instance;
@@ -11,10 +12,18 @@ class ServiceClass {
     this.getServices = this.getServices.bind(this);
   }
 
-  public addService(service: Service): Service {
-    this.instance.add(service);
+  public async addService(service: Service) {
+    try {
+      const fileName = await firebaseStorageInstance.addSource(
+        service.imageUri,
+      );
+      const imageUri = await firebaseStorageInstance.getSource(fileName);
+      const response = await this.instance.add({...service, imageUri});
 
-    return service;
+      return {...service, id: response.id};
+    } catch (e) {
+      throw new Error('Cannot add service');
+    }
   }
 
   public async getServices(): Promise<Service[]> {
