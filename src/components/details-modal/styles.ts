@@ -1,51 +1,33 @@
 import { StyleSheet } from 'react-native';
+import { DARK, WHITE } from 'styles/variables';
 
 export const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 22,
   },
   modalView: {
-    margin: 20,
-    backgroundColor: '#fff',
+    backgroundColor: DARK,
     borderRadius: 20,
     padding: 35,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
   },
   image: {
     height: 150,
-    width: 150,
+    width: 200,
     marginBottom: 15,
   },
-  modalText: {
+  title: {
     marginBottom: 15,
     textAlign: 'center',
-    color: '#000',
+    fontSize: 24,
+    fontFamily: 'Montserrat-Bold',
+    color: WHITE,
   },
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
-  },
-  buttonOpen: {
-    backgroundColor: '#F194FF',
-  },
-  buttonClose: {
-    backgroundColor: '#2196F3',
-  },
-  textStyle: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
+  description: {
+    marginBottom: 15,
+    fontSize: 18,
+    fontFamily: 'Montserrat-Regular',
+    color: WHITE,
   },
 });

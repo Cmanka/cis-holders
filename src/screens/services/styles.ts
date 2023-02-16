@@ -1,9 +1,12 @@
 import { StyleSheet } from 'react-native';
+import { WHITE } from 'styles/variables';
+import { GlobalStyles } from 'styles';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginHorizontal: 16,
+    backgroundColor: WHITE,
+    marginVertical: 10,
   },
   emptyWrapper: {
     flex: 1,
@@ -12,12 +15,13 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   emptyText: {
-    color: '#000',
+    ...GlobalStyles.p,
     fontSize: 32,
   },
   loader: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: WHITE,
   },
 });

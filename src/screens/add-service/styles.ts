@@ -5,11 +5,12 @@ export const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: 20,
+    paddingHorizontal: 20,
+    paddingBottom: 20,
   },
   outerWrapper: {
     width: '100%',
-    marginBottom: 30,
+    marginBottom: 20,
   },
   button: {
     width: '50%',

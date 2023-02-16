@@ -5,6 +5,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchService } from 'store/actions/service';
 import { selectServiceSectionList } from 'store/selectors/service';
+import { DARK } from 'styles/variables';
+import { GlobalStyles } from 'styles';
 
 export const ServicesScreen = () => {
   const dispatch = useDispatch();
@@ -15,23 +17,28 @@ export const ServicesScreen = () => {
   }, [dispatch]);
 
   if (loading) {
-    return <ActivityIndicator size="large" style={styles.loader} />;
+    return (
+      <View style={styles.loader}>
+        <ActivityIndicator size="large" color={DARK} />
+      </View>
+    );
   }
 
   if (!data.length) {
     return (
       <View style={styles.emptyWrapper}>
-        <Text style={styles.emptyText}>Services list is empty</Text>
+        <Text style={styles.emptyText}>List is empty</Text>
       </View>
     );
   }
 
   return (
     <SafeAreaView style={styles.container}>
+      <Text style={GlobalStyles.p}>All the services we could find</Text>
       <SectionList
         sections={data}
         keyExtractor={({ id }) => id}
-        renderItem={({ item: { title, imageUri } }) => <ServiceItem title={title} imageUri={imageUri} />}
+        renderItem={({ item: { title } }) => <ServiceItem title={title} />}
         renderSectionHeader={({ section: { type } }) => <ServiceItemHeader title={type} />}
       />
     </SafeAreaView>

@@ -1,9 +1,14 @@
 import { StyleSheet } from 'react-native';
+import { DARK } from 'styles/variables';
 
 export const styles = StyleSheet.create({
   input: {
-    borderColor: '#000',
+    fontSize: 18,
+    fontFamily: 'Montserrat-Medium',
+    borderRadius: 10,
+    borderColor: DARK,
     borderWidth: 2,
-    color: '#000',
+    paddingHorizontal: 20,
+    color: DARK,
   },
 });

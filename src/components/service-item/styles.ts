@@ -1,30 +1,27 @@
 import { StyleSheet } from 'react-native';
+import { CARD, DARK, WHITE } from 'styles/variables';
 
 export const styles = StyleSheet.create({
   item: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    flex: 1,
-    resizeMode: 'cover',
+    justifyContent: 'center',
+    backgroundColor: CARD,
     marginVertical: 10,
-    padding: 20,
-    backgroundColor: '#6c9a77',
+    marginHorizontal: 10,
+    paddingVertical: 20,
+    paddingHorizontal: 20,
+    borderRadius: 20,
   },
   title: {
-    color: '#000',
+    color: WHITE,
     fontSize: 20,
-  },
-  image: {
-    height: 50,
-    width: 50,
+    fontFamily: 'Montserrat-Regular',
   },
   header: {
-    fontSize: 32,
-    color: '#000',
-    borderColor: '#000',
-    borderWidth: 2,
+    fontSize: 24,
+    color: DARK,
     textAlign: 'center',
+    fontFamily: 'Montserrat-ExtraBold',
   },
 });

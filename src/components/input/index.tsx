@@ -1,20 +1,22 @@
 import { TextInput } from 'react-native';
 import { useController } from 'react-hook-form';
 import { InputProps } from 'components/input/types';
-import { styles } from './styles';
+import { DARK } from 'styles/variables';
+import { capitalize } from 'utils/helpers/capitalize';
+import { GlobalStyles } from 'styles';
 
 export const Input = ({ name, control, placeholder, type = 'default' }: InputProps) => {
-  const { field } = useController({ control, name, defaultValue: '' });
+  const { field } = useController({ control, name, rules: { required: `You didn't fill ${name}` } });
 
   return (
     <TextInput
-      style={styles.input}
+      style={GlobalStyles.input}
       value={field.value}
       onChangeText={field.onChange}
-      onBlur={field.onBlur}
       keyboardType={type}
-      placeholderTextColor="#000"
-      placeholder={placeholder}
+      placeholderTextColor={DARK}
+      placeholder={capitalize(placeholder)}
+      selectionColor={DARK}
     />
   );
 };

@@ -1510,11 +1510,6 @@
   resolved "https://registry.yarnpkg.com/@react-native-firebase/storage/-/storage-17.2.0.tgz#db033465d8b9ea9912283c66bf2cd49e8d95a93c"
   integrity sha512-Bklwe1TPUm0rU+3j7pY6zhCyKpvs+p9drSUqi0TRBk1qUC9aWPPLkT352PfziDrqy1fPZETuAQVGEEIdeqohnw==
 
-"@react-native-picker/picker@^2.4.8":
-  version "2.4.8"
-  resolved "https://registry.yarnpkg.com/@react-native-picker/picker/-/picker-2.4.8.tgz#a1a21f3d6ecadedbc3f0b691a444ddd7baa081f8"
-  integrity sha512-5NQ5XPo1B03YNqKFrV6h9L3CQaHlB80wd4ETHUEABRP2iLh7FHLVObX2GfziD+K/VJb8G4KZcZ23NFBFP1f7bg==
-
 "@react-native/assets@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@react-native/assets/-/assets-1.0.0.tgz#c6f9bf63d274bafc8e970628de24986b30a55c8e"
@@ -1565,14 +1560,6 @@
   resolved "https://registry.yarnpkg.com/@react-navigation/elements/-/elements-1.3.15.tgz#b8aebf101080057508b98cb5da4173c72c095db0"
   integrity sha512-CR4CEYJVY0OLyeLQi9N3Z2o4K47gXctvFxfZizDuW1xFtCJbA0eGvpjSLXEWHoY0hFjrlC6KinpdepGHVxhYIg==
 
-"@react-navigation/native-stack@^6.9.9":
-  version "6.9.10"
-  resolved "https://registry.yarnpkg.com/@react-navigation/native-stack/-/native-stack-6.9.10.tgz#5a5d5de9f49b72e603d0cdca9771e0324f65c1c7"
-  integrity sha512-dSazcWNxHg4qkid/AxFRvbhRtNXy/RqE00h/Qp+d7aBN0TwrOJn8mH/Inkkf4pHAntMbj0+mVAlKfxKmyLEGlA==
-  dependencies:
-    "@react-navigation/elements" "^1.3.15"
-    warn-once "^0.1.0"
-
 "@react-navigation/native@^6.1.3":
   version "6.1.4"
   resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-6.1.4.tgz#49666596c9df16e22284f35f482d05d6b5d47d60"
@@ -1589,15 +1576,6 @@
   integrity sha512-Z5DeCW3pUvMafbU9Cjy1qJYC2Bvl8iy3+PfsB0DsAwQ6zZ3WAXW5FTMX4Gb9H+Jg6qHWGbMFFwlYpS3UJ3tlVQ==
   dependencies:
     nanoid "^3.1.23"
-
-"@react-navigation/stack@^6.3.12":
-  version "6.3.13"
-  resolved "https://registry.yarnpkg.com/@react-navigation/stack/-/stack-6.3.13.tgz#f3dac5ac010c439491dcf35d64687bae608623ec"
-  integrity sha512-ZopcU5OC5ZvP2dJqwq4sQgCSPUslE0QMIAUbNbJmlrGIQBwzlCVV4v/NZPuPHQs/uEVVOEHqrNIuFfn00uv5dg==
-  dependencies:
-    "@react-navigation/elements" "^1.3.15"
-    color "^4.2.3"
-    warn-once "^0.1.0"
 
 "@redux-saga/core@^1.2.2":
   version "1.2.2"
@@ -5418,6 +5396,11 @@ react-native-codegen@^0.71.3:
     flow-parser "^0.185.0"
     jscodeshift "^0.13.1"
     nullthrows "^1.1.1"
+
+react-native-dropdown-picker@^5.4.4:
+  version "5.4.4"
+  resolved "https://registry.yarnpkg.com/react-native-dropdown-picker/-/react-native-dropdown-picker-5.4.4.tgz#59da1ecd4bc6d1fb698ed57f4ce615adf3944e90"
+  integrity sha512-MGsFc3Oi6Rc94WoJk3oOGfPe6IVscCrWn1DRCUDB508U4Wmd2b+EYONpsgiXQ89ESoBcOE3qQR6gkY2CVxoC+Q==
 
 react-native-gesture-handler@^2.9.0:
   version "2.9.0"

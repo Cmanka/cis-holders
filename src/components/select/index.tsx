@@ -1,19 +1,34 @@
-import { Picker } from '@react-native-picker/picker';
 import { useController } from 'react-hook-form';
 import { SelectProps } from 'components/select/types';
-import { View } from 'react-native';
 import { styles } from './styles';
+import { useEffect, useState } from 'react';
+import DropDownPicker from 'react-native-dropdown-picker';
 
 export const Select = ({ name, control, values }: SelectProps) => {
-  const { field } = useController({ control, name, defaultValue: values[0] });
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState();
+  const { field } = useController({
+    control,
+    name,
+    rules: { required: `You didn't fill ${name}` },
+  });
+
+  useEffect(() => {
+    field.onChange(value);
+  }, [value]);
 
   return (
-    <View style={styles.wrapper}>
-      <Picker selectedValue={field.value} onValueChange={field.onChange} onBlur={field.onBlur} style={styles.picker}>
-        {values.map((label) => (
-          <Picker.Item label={label} value={label} key={label} />
-        ))}
-      </Picker>
-    </View>
+    <DropDownPicker
+      open={open}
+      value={field.value}
+      items={values}
+      setOpen={setOpen}
+      style={styles.picker}
+      textStyle={styles.text}
+      setValue={setValue}
+      placeholder={`Select ${name}`}
+      placeholderStyle={styles.placeholder}
+      listMode="MODAL"
+    />
   );
 };

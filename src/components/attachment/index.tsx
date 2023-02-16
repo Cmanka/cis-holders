@@ -6,7 +6,7 @@ import { useController } from 'react-hook-form';
 import { ControlInput } from 'interfaces/control-input';
 
 export const Attachment = ({ control, name }: ControlInput) => {
-  const { field } = useController({ control, name });
+  const { field } = useController({ control, name, rules: { required: "You didn't attach a photo" } });
 
   const onAddAtach = async () => {
     const granted = await getCameraPermission();
@@ -28,8 +28,8 @@ export const Attachment = ({ control, name }: ControlInput) => {
 
   return (
     <TouchableOpacity onPress={onAddAtach} style={styles.wrapper}>
-      <Text style={styles.text}>+ Add attach</Text>
-      {field.value && <Image source={{ uri: field.value }} style={{ width: '100%', height: 300 }} />}
+      <Text style={styles.text}>{field.value ? '+ Change attacment' : '+ Add attachment'}</Text>
+      {field.value && <Image source={{ uri: field.value }} style={styles.image} />}
     </TouchableOpacity>
   );
 };

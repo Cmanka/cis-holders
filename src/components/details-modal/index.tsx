@@ -1,6 +1,7 @@
-import { Image, Modal, Pressable, Text, View } from 'react-native';
+import { Image, Modal, Text, View } from 'react-native';
 import { styles } from './styles';
 import { DetailsModalProps } from './types';
+import { Button } from 'components/button';
 
 export const DetailsModal = ({ handleClose, open, service }: DetailsModalProps) => {
   if (!open) {
@@ -11,14 +12,11 @@ export const DetailsModal = ({ handleClose, open, service }: DetailsModalProps) 
     <Modal transparent={true} visible={open} onRequestClose={handleClose}>
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
-          <Text style={styles.modalText}>
-            {service.type}: {service.title}
-          </Text>
+          <Text style={styles.title}>{service.title}</Text>
           <Image style={styles.image} source={{ uri: service.imageUri }} />
-          <Text style={styles.modalText}>{service.description}</Text>
-          <Pressable style={[styles.button, styles.buttonClose]} onPress={handleClose}>
-            <Text style={styles.textStyle}>Hide Modal</Text>
-          </Pressable>
+          <Text style={styles.description}>Type:{service.type}</Text>
+          <Text style={styles.description}>Description:{service.description}</Text>
+          <Button label="Close" theme="light" onPress={handleClose} />
         </View>
       </View>
     </Modal>
