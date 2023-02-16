@@ -12,7 +12,7 @@ class ServiceClass {
     this.getServices = this.getServices.bind(this);
   }
 
-  public async addService(service: Service) {
+  public async addService(service: Service): Promise<Service> {
     try {
       const fileName = await firebaseStorageInstance.addSource(service.imageUri);
       const imageUri = await firebaseStorageInstance.getSource(fileName);

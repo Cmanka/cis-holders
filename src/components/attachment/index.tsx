@@ -1,7 +1,7 @@
 import { Alert, Image, PermissionsAndroid, Text, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 import { launchCamera } from 'react-native-image-picker';
-import { getCameraPermission } from 'lib/get-camera-permession';
+import { getCameraPermission } from 'utils/helpers/get-camera-permession';
 import { useController } from 'react-hook-form';
 import { ControlInput } from 'interfaces/control-input';
 

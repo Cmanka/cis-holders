@@ -4,7 +4,7 @@ import { addServiceFailed, addServiceSuccess, fetchServicesFailed, fetchServices
 import { Service } from 'interfaces/service';
 import { AddServicePayload, ServiceTypes } from 'store/types/service';
 import { Action } from 'interfaces/action';
-import { getErrorMessage } from 'lib/get-error-message';
+import { getErrorMessage } from 'utils/helpers/get-error-message';
 import { QUERY_DELAY } from 'constants/query-delay';
 
 function* fetchServicesWorker() {

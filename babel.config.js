@@ -12,7 +12,7 @@ module.exports = {
           components: './src/components',
           routers: './src/routers',
           assets: './src/assets',
-          lib: './src/lib',
+          utils: './src/utils',
           services: './src/services',
           store: './src/store',
           interfaces: './src/interfaces',

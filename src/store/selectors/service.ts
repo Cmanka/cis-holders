@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import { AppState } from 'store/reducers';
-import { fromServicesToSectionList } from 'lib/from-services-to-section-list';
+import { fromServicesToSectionList } from 'utils/helpers/from-services-to-section-list';
 
 const serviceSelect = (state: AppState) => state.service;
 
