@@ -1,6 +1,7 @@
-import { Control, FieldValue, FieldValues } from 'react-hook-form';
+import { KeyboardTypeOptions } from 'react-native/Libraries/Components/TextInput/TextInput';
+import { ControlInput } from 'interfaces/control-input';
 
-export interface InputProps {
-  name: string;
-  control: Control<FieldValue<FieldValues>>;
+export interface InputProps extends ControlInput {
+  placeholder: string;
+  type?: KeyboardTypeOptions;
 }

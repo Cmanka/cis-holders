@@ -17,9 +17,8 @@ export const styles = StyleSheet.create({
     fontSize: 20,
   },
   image: {
-    height: 100,
-    width: 100,
-    objectFit: 'contain',
+    height: 50,
+    width: 50,
   },
   header: {
     fontSize: 32,

@@ -1,4 +1,4 @@
-import { ActivityIndicator, SafeAreaView, SectionList } from 'react-native';
+import { ActivityIndicator, SafeAreaView, SectionList, View, Text } from 'react-native';
 import { ServiceItem, ServiceItemHeader } from 'components/service-item';
 import { styles } from './styles';
 import { useEffect } from 'react';
@@ -15,7 +15,15 @@ export const ServicesScreen = () => {
   }, [dispatch]);
 
   if (loading) {
-    return <ActivityIndicator size="large" style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} />;
+    return <ActivityIndicator size="large" style={styles.loader} />;
+  }
+
+  if (!data.length) {
+    return (
+      <View style={styles.emptyWrapper}>
+        <Text style={styles.emptyText}>Services list is empty</Text>
+      </View>
+    );
   }
 
   return (

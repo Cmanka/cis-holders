@@ -8,8 +8,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addService, changeFormStatus } from 'store/actions/service';
 import { selectService } from 'store/selectors/service';
 import { Attachment } from 'components/attachment';
-import { Service } from 'interfaces/service';
 import { useEffect } from 'react';
+import { Address } from 'components/address';
+import { Service } from 'interfaces/service';
 
 export const AddServiceScreen = () => {
   const dispatch = useDispatch();
@@ -31,16 +32,19 @@ export const AddServiceScreen = () => {
   return (
     <ScrollView contentContainerStyle={styles.wrapper}>
       <View style={styles.outerWrapper}>
-        <Input name="title" control={control} />
+        <Input name="title" placeholder="title" control={control} />
       </View>
       <View style={styles.outerWrapper}>
-        <Input name="description" control={control} />
+        <Input name="description" placeholder="description" control={control} />
       </View>
       <View style={styles.outerWrapper}>
         <Select name="type" control={control} values={Object.values(ServiceType)} />
       </View>
       <View style={styles.outerWrapper}>
-        <Attachment control={control} name="imageUri" />
+        <Attachment name="imageUri" control={control} />
+      </View>
+      <View style={styles.outerWrapper}>
+        <Address name="coordinates" control={control} />
       </View>
       {loading ? (
         <ActivityIndicator />
@@ -51,7 +55,7 @@ export const AddServiceScreen = () => {
       )}
       {error && (
         <View style={styles.outerWrapper}>
-          <Text style={{ color: 'red', textAlign: 'center', marginTop: 20 }}>Error: {error}</Text>
+          <Text style={styles.error}>{error}</Text>
         </View>
       )}
     </ScrollView>

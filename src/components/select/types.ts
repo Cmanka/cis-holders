@@ -1,7 +1,5 @@
-import { Control, FieldValue, FieldValues } from 'react-hook-form';
+import { ControlInput } from 'interfaces/control-input';
 
-export interface SelectProps {
-  name: string;
-  control: Control<FieldValue<FieldValues>>;
+export interface SelectProps extends ControlInput {
   values: string[];
 }

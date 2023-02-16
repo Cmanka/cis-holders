@@ -2,11 +2,11 @@ import { Alert, Image, PermissionsAndroid, Text, TouchableOpacity } from 'react-
 import { styles } from './styles';
 import { launchCamera } from 'react-native-image-picker';
 import { getCameraPermission } from 'lib/get-camera-permession';
-import { AttachmentProps } from 'components/attachment/types';
 import { useController } from 'react-hook-form';
+import { ControlInput } from 'interfaces/control-input';
 
-export const Attachment = ({ name, control }: AttachmentProps) => {
-  const { field } = useController({ control, name, defaultValue: '' });
+export const Attachment = ({ control, name }: ControlInput) => {
+  const { field } = useController({ control, name });
 
   const onAddAtach = async () => {
     const granted = await getCameraPermission();
