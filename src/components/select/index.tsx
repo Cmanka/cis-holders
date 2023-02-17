@@ -15,7 +15,7 @@ export const Select = ({ name, control, values }: SelectProps) => {
 
   useEffect(() => {
     field.onChange(value);
-  }, [value]);
+  }, [value, field]);
 
   return (
     <DropDownPicker

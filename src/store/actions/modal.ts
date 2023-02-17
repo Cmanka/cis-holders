@@ -1,9 +1,10 @@
 import { Action } from 'interfaces/action';
 import { ModalTypes, OpenModalPayload } from 'store/types/modal';
+import { ModalType } from 'constants/modal-type';
 
-export const openModal = (data: unknown): Action<ModalTypes.OpenModal, OpenModalPayload> => ({
+export const openModal = (type: ModalType, data?: unknown): Action<ModalTypes.OpenModal, OpenModalPayload> => ({
   type: ModalTypes.OpenModal,
-  payload: { data },
+  payload: { type, data },
 });
 
 export const closeModal = (): Action<ModalTypes.CloseModal> => ({

@@ -1,4 +1,4 @@
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 import { GlobalStyles } from 'styles';
 import { DrawerContentComponentProps } from '@react-navigation/drawer/src/types';
 import { AppRoutes } from 'constants/app-routes';
@@ -9,10 +9,8 @@ export const DrawerContent = ({ navigation }: DrawerContentComponentProps) => {
   };
 
   return (
-    <View>
-      <TouchableOpacity onPress={handleToAbout}>
-        <Text style={GlobalStyles.h1}>About</Text>
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity onPress={handleToAbout}>
+      <Text style={GlobalStyles.h1}>About</Text>
+    </TouchableOpacity>
   );
 };

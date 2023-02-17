@@ -1,4 +1,4 @@
-type ButtonTheme = 'dark' | 'light';
+type ButtonTheme = 'dark' | 'light' | 'gray';
 
 export interface ButtonProps {
   label: string;

@@ -2,6 +2,8 @@ import { FetchServiceFailedPayload, FetchServiceSuccessPayload, ServiceTypes } f
 import { Action } from 'interfaces/action';
 import { Service } from 'interfaces/service';
 import { Status } from 'interfaces/status';
+import { ServiceType } from 'constants/service-type';
+import { SortType } from 'constants/sort-type';
 
 export const fetchService = (): Action<ServiceTypes.FetchServices> => ({
   type: ServiceTypes.FetchServices,
@@ -40,4 +42,19 @@ export const addServiceFailed = (error: string): Action<ServiceTypes.AddServiceF
 export const changeFormStatus = (status: Status): Action<ServiceTypes.ChangeStatus> => ({
   type: ServiceTypes.ChangeStatus,
   payload: { status },
+});
+
+export const filterServices = (type: ServiceType): Action<ServiceTypes.FilterServices> => ({
+  type: ServiceTypes.FilterServices,
+  payload: { type },
+});
+
+export const clearServices = (): Action<ServiceTypes.ClearServices> => ({
+  type: ServiceTypes.ClearServices,
+  payload: {},
+});
+
+export const sortServices = (type: SortType): Action<ServiceTypes.SortServices> => ({
+  type: ServiceTypes.SortServices,
+  payload: { type },
 });

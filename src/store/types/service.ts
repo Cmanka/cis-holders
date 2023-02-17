@@ -1,6 +1,8 @@
 import { Service } from 'interfaces/service';
 import { Action } from 'interfaces/action';
 import { Status } from 'interfaces/status';
+import { ServiceType } from 'constants/service-type';
+import { SortType } from 'constants/sort-type';
 
 export enum ServiceTypes {
   FetchServices = 'FETCH_SERVICES',
@@ -10,6 +12,9 @@ export enum ServiceTypes {
   AddServiceSuccess = 'ADD_SERVICE_SUCCESS',
   AddServiceFailed = 'ADD_SERVICE_FAILED',
   ChangeStatus = 'CHANGE_STATUS',
+  FilterServices = 'FILTER_SERVICES',
+  ClearServices = 'CLEAR_SERVICES',
+  SortServices = 'SORT_SERVICES',
 }
 
 export interface FetchServiceSuccessPayload {
@@ -36,6 +41,14 @@ export interface ChangeStatusPayload {
   status: Status;
 }
 
+export interface FilterServicesPayload {
+  type: ServiceType;
+}
+
+export interface SortServicesPayload {
+  type: SortType;
+}
+
 export type ServiceAction =
   | Action<ServiceTypes.FetchServices>
   | Action<ServiceTypes.FetchServicesSuccess, FetchServiceSuccessPayload>
@@ -43,4 +56,7 @@ export type ServiceAction =
   | Action<ServiceTypes.AddService, AddServicePayload>
   | Action<ServiceTypes.AddServiceSuccess, AddServiceSuccessPayload>
   | Action<ServiceTypes.AddServiceFailed, AddServiceFailedPayload>
-  | Action<ServiceTypes.ChangeStatus, ChangeStatusPayload>;
+  | Action<ServiceTypes.ChangeStatus, ChangeStatusPayload>
+  | Action<ServiceTypes.FilterServices, FilterServicesPayload>
+  | Action<ServiceTypes.ClearServices>
+  | Action<ServiceTypes.SortServices, SortServicesPayload>;

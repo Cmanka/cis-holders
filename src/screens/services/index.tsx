@@ -1,33 +1,28 @@
-import { ActivityIndicator, SafeAreaView, SectionList, View, Text } from 'react-native';
+import { SafeAreaView, SectionList, Text, View } from 'react-native';
 import { ServiceItem, ServiceItemHeader } from 'components/service-item';
 import { styles } from './styles';
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchService } from 'store/actions/service';
+import { clearServices } from 'store/actions/service';
 import { selectServiceSectionList } from 'store/selectors/service';
-import { DARK } from 'styles/variables';
 import { GlobalStyles } from 'styles';
+import { Button } from 'components/button';
+import { clearStorage } from 'store/actions/async-storage';
+import { withFilters } from 'utils/hocs/with-filters';
 
-export const ServicesScreen = () => {
+export const ServicesScreen = withFilters(() => {
   const dispatch = useDispatch();
-  const { data, loading } = useSelector(selectServiceSectionList);
+  const { data, filter } = useSelector(selectServiceSectionList);
 
-  useEffect(() => {
-    dispatch(fetchService());
-  }, [dispatch]);
-
-  if (loading) {
-    return (
-      <View style={styles.loader}>
-        <ActivityIndicator size="large" color={DARK} />
-      </View>
-    );
-  }
+  const handleClear = () => {
+    dispatch(clearServices());
+    dispatch(clearStorage());
+  };
 
   if (!data.length) {
     return (
       <View style={styles.emptyWrapper}>
-        <Text style={styles.emptyText}>List is empty</Text>
+        <Text style={styles.emptyText}>{filter ? `No matches by ${filter}` : 'List is empty'}</Text>
+        {filter && <Button label="Clear" onPress={handleClear} />}
       </View>
     );
   }
@@ -43,4 +38,4 @@ export const ServicesScreen = () => {
       />
     </SafeAreaView>
   );
-};
+});

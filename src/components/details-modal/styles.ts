@@ -27,6 +27,7 @@ export const styles = StyleSheet.create({
   description: {
     marginBottom: 15,
     fontSize: 18,
+    maxWidth: 200,
     fontFamily: 'Montserrat-Regular',
     color: WHITE,
   },

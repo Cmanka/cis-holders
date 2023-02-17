@@ -1,1 +1,1 @@
-export const QUERY_DELAY = 1000;
+export const QUERY_DELAY = 2000;

@@ -1,7 +1,7 @@
 import { TouchableOpacity, Text } from 'react-native';
 import { ButtonProps } from './types';
 import { styles } from './styles';
-import { DARK, WHITE } from 'styles/variables';
+import { CARD, DARK, WHITE } from 'styles/variables';
 
 const AttributesWrapper = {
   dark: {
@@ -9,6 +9,9 @@ const AttributesWrapper = {
   },
   light: {
     backgroundColor: WHITE,
+  },
+  gray: {
+    backgroundColor: CARD,
   },
 };
 
@@ -18,6 +21,9 @@ const AttributesText = {
   },
   light: {
     color: DARK,
+  },
+  gray: {
+    color: WHITE,
   },
 };
 

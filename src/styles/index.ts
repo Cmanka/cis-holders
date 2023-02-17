@@ -41,4 +41,10 @@ export const GlobalStyles = StyleSheet.create({
     paddingHorizontal: 20,
     color: DARK,
   },
+  loader: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: WHITE,
+  },
 });

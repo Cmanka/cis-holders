@@ -9,7 +9,7 @@ export const DetailsModal = ({ handleClose, open, service }: DetailsModalProps) 
   }
 
   return (
-    <Modal transparent={true} visible={open} onRequestClose={handleClose}>
+    <Modal transparent animationType="fade" visible={open} onRequestClose={handleClose}>
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
           <Text style={styles.title}>{service.title}</Text>

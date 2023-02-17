@@ -10,5 +10,10 @@ export const selectService = createSelector(serviceSelect, (state) => ({
 
 export const selectServiceSectionList = createSelector(serviceSelect, (state) => ({
   ...state,
-  data: fromServicesToSectionList(state.data),
+  data: fromServicesToSectionList(state.filter ?? state.sort ? state.filtered : state.data),
+}));
+
+export const selectFilteredServices = createSelector(serviceSelect, (state) => ({
+  markers: state.filter ? state.filtered : state.data,
+  filter: state.filter,
 }));

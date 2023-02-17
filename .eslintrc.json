@@ -18,7 +18,8 @@
   },
   "plugins": [
     "react",
-    "react-native"
+    "react-native",
+    "react-hooks"
   ],
   "rules": {
     "@typescript-eslint/consistent-type-imports": "off",
@@ -26,7 +27,8 @@
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
-    "@typescript-eslint/ban-types": "off"
+    "@typescript-eslint/ban-types": "off",
+    "react/display-name": "off"
   },
   "settings": {
     "react": {

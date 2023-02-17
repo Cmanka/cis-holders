@@ -18,10 +18,4 @@ export const styles = StyleSheet.create({
     ...GlobalStyles.p,
     fontSize: 32,
   },
-  loader: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: WHITE,
-  },
 });

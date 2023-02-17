@@ -14,4 +14,12 @@ export const styles = StyleSheet.create({
     height: 30,
     width: 30,
   },
+  filters: {
+    flexDirection: 'row',
+    gap: 10,
+  },
+  filtersIcon: {
+    height: 25,
+    width: 25,
+  },
 });
