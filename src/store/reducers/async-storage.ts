@@ -70,11 +70,9 @@ export const asyncStorageReducer = (
       return { ...state, loading: false, error: action.payload.error };
     }
     case AsyncStorageTypes.ClearStorage: {
-      console.log(2);
       return { ...state, loading: true };
     }
     case AsyncStorageTypes.ClearStorageSuccess: {
-      console.log(1);
       return { ...state, loading: false, keys: {} };
     }
     case AsyncStorageTypes.ClearStorageFailed: {
