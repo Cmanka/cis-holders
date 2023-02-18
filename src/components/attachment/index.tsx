@@ -28,7 +28,7 @@ export const Attachment = ({ control, name }: ControlInput) => {
 
   return (
     <TouchableOpacity onPress={onAddAtach} style={styles.wrapper}>
-      <Text style={styles.text}>{field.value ? '+ Change attacment' : '+ Add attachment'}</Text>
+      <Text style={styles.text}>{field.value ? '+ Change attachment' : '+ Add attachment'}</Text>
       {field.value && <Image source={{ uri: field.value }} style={styles.image} />}
     </TouchableOpacity>
   );

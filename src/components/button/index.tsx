@@ -29,8 +29,8 @@ const AttributesText = {
 
 export const Button = ({ onPress, label, theme = 'dark' }: ButtonProps) => {
   return (
-    <TouchableOpacity style={{ ...styles.button, ...AttributesWrapper[theme] }} activeOpacity={0.6} onPress={onPress}>
-      <Text style={{ ...styles.text, ...AttributesText[theme] }}>{label}</Text>
+    <TouchableOpacity style={[styles.button, AttributesWrapper[theme]]} activeOpacity={0.6} onPress={onPress}>
+      <Text style={[styles.text, AttributesText[theme]]}>{label}</Text>
     </TouchableOpacity>
   );
 };

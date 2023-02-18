@@ -4,8 +4,8 @@ import { WHITE, DARK, ERROR } from 'styles/variables';
 export const GlobalStyles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: '#61dafb',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   h1: {
     fontSize: 30,
