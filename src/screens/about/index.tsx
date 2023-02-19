@@ -1,11 +1,12 @@
-import { Carousel } from 'components/carousel';
 import { useEffect } from 'react';
-import { fetchCarousel } from 'store/actions/carousel';
 import { ActivityIndicator, Text, View } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCarousel } from 'store/actions/carousel';
+import { selectCarousel } from 'store/selectors/carousel';
 import { GlobalStyles } from 'styles';
 import { DARK } from 'styles/variables';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectCarousel } from 'store/selectors/carousel';
+
+import { Carousel } from 'components/carousel';
 
 export const AboutScreen = () => {
   const dispatch = useDispatch();

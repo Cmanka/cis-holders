@@ -1,14 +1,15 @@
 import { Image, Text, TouchableOpacity, View } from 'react-native';
-import { styles } from './styles';
-import { GlobalStyles } from 'styles';
-import { AppRoutes } from 'constants/app-routes';
-import menu from 'assets/images/burger-menu.png';
+import { ImageSourcePropType } from 'react-native/Libraries/Image/Image';
 import arrow from 'assets/images/arrow.png';
+import menu from 'assets/images/burger-menu.png';
 import filters from 'assets/images/filters.png';
 import sort from 'assets/images/sort.png';
-import { ImageSourcePropType } from 'react-native/Libraries/Image/Image';
-import { HeaderProps } from './types';
+import { AppRoutes } from 'constants/app-routes';
 import { ModalType } from 'constants/modal-type';
+import { GlobalStyles } from 'styles';
+
+import { styles } from './styles';
+import { HeaderProps } from './types';
 
 const textFromRoute: Record<AppRoutes, string> = {
   [AppRoutes.Home]: AppRoutes.Services,

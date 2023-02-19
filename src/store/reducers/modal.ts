@@ -1,5 +1,5 @@
-import { ModalAction, ModalTypes } from 'store/types/modal';
 import { ModalType } from 'constants/modal-type';
+import { ModalAction, ModalTypes } from 'store/types/modal';
 
 interface ModalState {
   data: unknown;

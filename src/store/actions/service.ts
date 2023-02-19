@@ -1,9 +1,9 @@
-import { FetchServiceFailedPayload, FetchServiceSuccessPayload, ServiceTypes } from 'store/types/service';
+import { ServiceType } from 'constants/service-type';
+import { SortType } from 'constants/sort-type';
 import { Action } from 'interfaces/action';
 import { Service } from 'interfaces/service';
 import { Status } from 'interfaces/status';
-import { ServiceType } from 'constants/service-type';
-import { SortType } from 'constants/sort-type';
+import { FetchServiceFailedPayload, FetchServiceSuccessPayload, ServiceTypes } from 'store/types/service';
 
 export const fetchService = (): Action<ServiceTypes.FetchServices> => ({
   type: ServiceTypes.FetchServices,

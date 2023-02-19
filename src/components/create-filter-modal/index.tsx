@@ -1,10 +1,12 @@
-import { Modal, Text, TouchableOpacity, View } from 'react-native';
-import { styles } from './styles';
-import { Button } from 'components/button';
-import { CARD } from 'styles/variables';
 import { FC } from 'react';
-import { FilterModalProps } from './types';
+import { Modal, Text, TouchableOpacity, View } from 'react-native';
+import { CARD } from 'styles/variables';
 import { capitalize } from 'utils/helpers/capitalize';
+
+import { Button } from 'components/button';
+
+import { styles } from './styles';
+import { FilterModalProps } from './types';
 
 const FilterModal = ({ open, handleClose, filter, handleFilter, handleClear, values }: FilterModalProps<any>) => {
   return (

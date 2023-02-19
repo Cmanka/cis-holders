@@ -1,6 +1,7 @@
 import { Text, View } from 'react-native';
-import { ServiceItemHeaderProps, ServiceItemProps } from './types';
+
 import { styles } from './styles';
+import { ServiceItemHeaderProps, ServiceItemProps } from './types';
 const ServiceItem = ({ title }: ServiceItemProps) => {
   return (
     <View style={styles.item}>

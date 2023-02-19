@@ -1,17 +1,18 @@
 import { ComponentType, FC, useEffect } from 'react';
+import { ActivityIndicator, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFilters } from 'store/selectors';
+import { ModalType } from 'constants/modal-type';
+import { ServiceType } from 'constants/service-type';
+import { SortType } from 'constants/sort-type';
+import { StorageKeys } from 'constants/storage-keys';
 import { getAllKeys } from 'store/actions/async-storage';
 import { fetchService, filterServices, sortServices } from 'store/actions/service';
-import { StorageKeys } from 'constants/storage-keys';
-import { ServiceType } from 'constants/service-type';
-import { ActivityIndicator, View } from 'react-native';
+import { selectFilters } from 'store/selectors';
 import { GlobalStyles } from 'styles';
 import { DARK } from 'styles/variables';
-import { ModalType } from 'constants/modal-type';
-import { SortType } from 'constants/sort-type';
-import { SortModal } from 'components/create-filter-modal/sort-modal';
+
 import { FiltersModal } from 'components/create-filter-modal/filters-modal';
+import { SortModal } from 'components/create-filter-modal/sort-modal';
 
 export const withFilters =
   <T extends {}>(Component: ComponentType<T>): FC<T> =>

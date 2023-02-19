@@ -1,5 +1,5 @@
-import { Service } from 'interfaces/service';
 import { SortType } from 'constants/sort-type';
+import { Service } from 'interfaces/service';
 
 export const sortByName = (services: Service[], sort: SortType) => {
   if (sort === SortType.Asc) {

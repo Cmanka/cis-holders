@@ -1,9 +1,9 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { ServicesScreen } from 'screens/services';
-import { MapScreen } from 'screens/map';
-import { AddServiceScreen } from 'screens/add-service';
-import { TabBar } from 'routers/bottom-tab/tab-bar';
 import { AppRoutes } from 'constants/app-routes';
+import { TabBar } from 'routers/bottom-tab/tab-bar';
+import { AddServiceScreen } from 'screens/add-service';
+import { MapScreen } from 'screens/map';
+import { ServicesScreen } from 'screens/services';
 
 const Tab = createBottomTabNavigator();
 

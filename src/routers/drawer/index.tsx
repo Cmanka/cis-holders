@@ -1,13 +1,14 @@
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { AboutScreen } from 'screens/about';
-import { BottomTabRouter } from 'routers/bottom-tab';
-import { Header } from './header';
-import { AppRoutes } from 'constants/app-routes';
-import { DrawerContent } from 'routers/drawer/drawer-content';
-import { styles } from './drawer-content/styles';
 import { useDispatch } from 'react-redux';
-import { openModal } from 'store/actions/modal';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { AppRoutes } from 'constants/app-routes';
 import { ModalType } from 'constants/modal-type';
+import { BottomTabRouter } from 'routers/bottom-tab';
+import { DrawerContent } from 'routers/drawer/drawer-content';
+import { AboutScreen } from 'screens/about';
+import { openModal } from 'store/actions/modal';
+
+import { styles } from './drawer-content/styles';
+import { Header } from './header';
 const Drawer = createDrawerNavigator();
 
 export const DrawerRouter = () => {

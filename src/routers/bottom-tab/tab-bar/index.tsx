@@ -1,7 +1,7 @@
-import { styles } from 'routers/bottom-tab/styles';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
-import addServiceLogo from 'assets/images/plus.png';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
+import addServiceLogo from 'assets/images/plus.png';
+import { styles } from 'routers/bottom-tab/styles';
 
 const routes = [{ label: 'Services' }, { label: 'Add', logo: addServiceLogo }, { label: 'Map' }];
 

@@ -1,15 +1,13 @@
-import { call, delay, takeLatest, put } from 'redux-saga/effects';
-import { Action } from 'interfaces/action';
-import { getErrorMessage } from 'utils/helpers/get-error-message';
 import { QUERY_DELAY } from 'constants/query-delay';
-import { AddKeyPayload, AsyncStorageTypes, FetchKeyPayload, RemoveKeyPayload } from 'store/types/async-storage';
-import { asyncStorageInstance } from 'services/async-storage';
 import { StorageKeys } from 'constants/storage-keys';
+import { Action } from 'interfaces/action';
+import { call, delay, put,takeLatest } from 'redux-saga/effects';
+import { asyncStorageInstance } from 'services/async-storage';
 import {
   addKeyFailed,
   addKeySuccess,
-  clearStorageSuccess,
   clearStorageFailed,
+  clearStorageSuccess,
   fetchKeyFailed,
   fetchKeySuccess,
   getAllKeysFailed,
@@ -18,6 +16,8 @@ import {
   removeKeySuccess,
 } from 'store/actions/async-storage';
 import { AsyncStorageKeyState } from 'store/reducers/async-storage';
+import { AddKeyPayload, AsyncStorageTypes, FetchKeyPayload, RemoveKeyPayload } from 'store/types/async-storage';
+import { getErrorMessage } from 'utils/helpers/get-error-message';
 
 function* fetchKeyWorker(asyncStorage: Action<AsyncStorageTypes.FetchKey, FetchKeyPayload>) {
   try {

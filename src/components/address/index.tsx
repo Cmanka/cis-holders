@@ -1,12 +1,13 @@
-import { View, Text, Switch, TextInput } from 'react-native';
-import { styles } from './styles';
 import { useState } from 'react';
+import { useController } from 'react-hook-form';
+import { Switch, Text, TextInput, View } from 'react-native';
 import MapView, { MapPressEvent, Marker } from 'react-native-maps';
 import { InitialRegion } from 'constants/initial-region';
-import { useController } from 'react-hook-form';
 import { ControlInput } from 'interfaces/control-input';
 import { GlobalStyles } from 'styles';
 import { BrTag, DARK, LIGHT_DARK, WHITE } from 'styles/variables';
+
+import { styles } from './styles';
 
 export const Address = ({ control, name }: ControlInput) => {
   const { field } = useController({ control, name, rules: { required: `You didn't choice ${name}` } });

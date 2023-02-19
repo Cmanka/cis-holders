@@ -1,10 +1,10 @@
-import { call, delay, put, takeLatest } from 'redux-saga/effects';
 import { QUERY_DELAY } from 'constants/query-delay';
-import { getErrorMessage } from 'utils/helpers/get-error-message';
-import { CarouselTypes } from 'store/types/carousel';
-import { carouselInstance } from 'services/carousel';
 import { Carousel } from 'interfaces/carousel';
+import { call, delay, put, takeLatest } from 'redux-saga/effects';
+import { carouselInstance } from 'services/carousel';
 import { fetchCarouselFailed, fetchCarouselSuccess } from 'store/actions/carousel';
+import { CarouselTypes } from 'store/types/carousel';
+import { getErrorMessage } from 'utils/helpers/get-error-message';
 
 function* fetchCarouselWorker() {
   try {

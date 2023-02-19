@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { DARK } from 'styles/variables';
 import { GlobalStyles } from 'styles';
+import { DARK } from 'styles/variables';
 
 export const styles = StyleSheet.create({
   wrapper: {

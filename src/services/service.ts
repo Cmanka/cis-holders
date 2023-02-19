@@ -1,6 +1,6 @@
 import firestore from '@react-native-firebase/firestore';
-import { Service } from 'interfaces/service';
 import { FirebaseCollection } from 'constants/firebase-collection';
+import { Service } from 'interfaces/service';
 import { firebaseStorageInstance } from 'services/firebase-storage';
 
 class ServiceClass {

@@ -1,4 +1,5 @@
-import { View, Animated, useWindowDimensions } from 'react-native';
+import { Animated, useWindowDimensions,View } from 'react-native';
+
 import { styles } from './styles';
 import { PaginationProps } from './types';
 

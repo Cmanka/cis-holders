@@ -1,8 +1,8 @@
 import { all, fork } from 'redux-saga/effects';
 
-import { serviceWatcher } from './service';
 import { asyncStorageWatcher } from './async-storage';
 import { carouselWatcher } from './carousel';
+import { serviceWatcher } from './service';
 
 export function* rootSaga() {
   yield all([fork(serviceWatcher)]);

@@ -1,5 +1,5 @@
-import { AsyncStorageAction, AsyncStorageTypes } from 'store/types/async-storage';
 import { StorageKeys } from 'constants/storage-keys';
+import { AsyncStorageAction, AsyncStorageTypes } from 'store/types/async-storage';
 
 export interface AsyncStorageKey {
   type: StorageKeys;

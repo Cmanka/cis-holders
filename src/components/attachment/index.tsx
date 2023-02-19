@@ -1,9 +1,10 @@
-import { Alert, Image, PermissionsAndroid, Text, TouchableOpacity } from 'react-native';
-import { styles } from './styles';
-import { launchCamera } from 'react-native-image-picker';
-import { getCameraPermission } from 'utils/helpers/get-camera-permession';
 import { useController } from 'react-hook-form';
+import { Alert, Image, PermissionsAndroid, Text, TouchableOpacity } from 'react-native';
+import { launchCamera } from 'react-native-image-picker';
 import { ControlInput } from 'interfaces/control-input';
+import { getCameraPermission } from 'utils/helpers/get-camera-permession';
+
+import { styles } from './styles';
 
 export const Attachment = ({ control, name }: ControlInput) => {
   const { field } = useController({ control, name, rules: { required: "You didn't attach a photo" } });

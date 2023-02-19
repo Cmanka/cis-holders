@@ -1,13 +1,15 @@
 import { SafeAreaView, SectionList, Text, View } from 'react-native';
-import { ServiceItem, ServiceItemHeader } from 'components/service-item';
-import { styles } from './styles';
 import { useDispatch, useSelector } from 'react-redux';
+import { clearStorage } from 'store/actions/async-storage';
 import { clearServices } from 'store/actions/service';
 import { selectServiceSectionList } from 'store/selectors/service';
 import { GlobalStyles } from 'styles';
-import { Button } from 'components/button';
-import { clearStorage } from 'store/actions/async-storage';
 import { withFilters } from 'utils/hocs/with-filters';
+
+import { Button } from 'components/button';
+import { ServiceItem, ServiceItemHeader } from 'components/service-item';
+
+import { styles } from './styles';
 
 export const ServicesScreen = withFilters(() => {
   const dispatch = useDispatch();

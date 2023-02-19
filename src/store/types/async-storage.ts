@@ -1,5 +1,5 @@
-import { Action } from 'interfaces/action';
 import { StorageKeys } from 'constants/storage-keys';
+import { Action } from 'interfaces/action';
 import { AsyncStorageKey, AsyncStorageKeyState } from 'store/reducers/async-storage';
 
 export enum AsyncStorageTypes {

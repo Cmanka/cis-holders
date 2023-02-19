@@ -1,16 +1,18 @@
 import { Text, View } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import { useSelector } from 'react-redux';
-import { selectFilteredServices } from 'store/selectors/service';
-import { styles } from './styles';
 import { InitialRegion } from 'constants/initial-region';
-import { Service } from 'interfaces/service';
-import { useModal } from 'utils/hooks/use-modal';
-import { DetailsModal } from 'components/details-modal';
-import { GlobalStyles } from 'styles';
 import { ModalType } from 'constants/modal-type';
+import { Service } from 'interfaces/service';
+import { selectFilteredServices } from 'store/selectors/service';
+import { GlobalStyles } from 'styles';
 import { BrTag } from 'styles/variables';
 import { withFilters } from 'utils/hocs/with-filters';
+import { useModal } from 'utils/hooks/use-modal';
+
+import { DetailsModal } from 'components/details-modal';
+
+import { styles } from './styles';
 
 export const MapScreen = withFilters(() => {
   const { markers, filter } = useSelector(selectFilteredServices);

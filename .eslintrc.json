@@ -19,7 +19,8 @@
   "plugins": [
     "react",
     "react-native",
-    "react-hooks"
+    "react-hooks",
+    "simple-import-sort"
   ],
   "rules": {
     "@typescript-eslint/consistent-type-imports": "off",
@@ -28,7 +29,18 @@
     "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/ban-types": "off",
-    "react/display-name": "off"
+    "react/display-name": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
+    "simple-import-sort/imports": ["error", {
+      "groups": [
+        ["^react", "^@?\\w"],
+        ["^(@|components)(/.*|$)"],
+        ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+        ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"]
+      ]
+    }],
+    "simple-import-sort/exports": "error"
   },
   "settings": {
     "react": {

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { WHITE, DARK, ERROR } from 'styles/variables';
+import { DARK, ERROR,WHITE } from 'styles/variables';
 
 export const GlobalStyles = StyleSheet.create({
   container: {

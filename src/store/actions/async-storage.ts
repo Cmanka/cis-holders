@@ -1,4 +1,6 @@
+import { StorageKeys } from 'constants/storage-keys';
 import { Action } from 'interfaces/action';
+import { AsyncStorageKey, AsyncStorageKeyState } from 'store/reducers/async-storage';
 import {
   AddKeyFailedPayload,
   AddKeyPayload,
@@ -14,8 +16,6 @@ import {
   RemoveKeyPayload,
   RemoveKeySuccessPayload,
 } from 'store/types/async-storage';
-import { StorageKeys } from 'constants/storage-keys';
-import { AsyncStorageKey, AsyncStorageKeyState } from 'store/reducers/async-storage';
 
 export const fetchKey = (key: StorageKeys): Action<AsyncStorageTypes.FetchKey, FetchKeyPayload> => ({
   type: AsyncStorageTypes.FetchKey,

@@ -1,6 +1,6 @@
 import { Action } from 'interfaces/action';
-import { CarouselTypes, FetchCarouselFailedPayload, FetchCarouselSuccessPayload } from 'store/types/carousel';
 import { Carousel } from 'interfaces/carousel';
+import { CarouselTypes, FetchCarouselFailedPayload, FetchCarouselSuccessPayload } from 'store/types/carousel';
 
 export const fetchCarousel = (): Action<CarouselTypes.FetchCarousel> => ({
   type: CarouselTypes.FetchCarousel,

@@ -1,7 +1,8 @@
 import { Image, Text, useWindowDimensions, View } from 'react-native';
-import { GlobalStyles } from 'styles';
-import { styles } from './styles';
 import { Carousel } from 'interfaces/carousel';
+import { GlobalStyles } from 'styles';
+
+import { styles } from './styles';
 export const CarouselItem = ({ image, title, description }: Carousel) => {
   const { width } = useWindowDimensions();
   return (

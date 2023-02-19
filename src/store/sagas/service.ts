@@ -1,11 +1,11 @@
-import { call, delay, takeLatest, put } from 'redux-saga/effects';
+import { QUERY_DELAY } from 'constants/query-delay';
+import { Action } from 'interfaces/action';
+import { Service } from 'interfaces/service';
+import { call, delay, put,takeLatest } from 'redux-saga/effects';
 import { serviceInstance } from 'services/service';
 import { addServiceFailed, addServiceSuccess, fetchServicesFailed, fetchServicesSuccess } from 'store/actions/service';
-import { Service } from 'interfaces/service';
 import { AddServicePayload, ServiceTypes } from 'store/types/service';
-import { Action } from 'interfaces/action';
 import { getErrorMessage } from 'utils/helpers/get-error-message';
-import { QUERY_DELAY } from 'constants/query-delay';
 
 function* fetchServicesWorker() {
   try {

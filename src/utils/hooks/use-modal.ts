@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectModal } from 'store/selectors/modal';
-import { closeModal, openModal } from 'store/actions/modal';
 import { ModalType } from 'constants/modal-type';
+import { closeModal, openModal } from 'store/actions/modal';
+import { selectModal } from 'store/selectors/modal';
 
 export const useModal = (modalType: ModalType) => {
   const { open, data, type } = useSelector(selectModal);

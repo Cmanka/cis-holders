@@ -1,7 +1,9 @@
 import { Image, Modal, Text, View } from 'react-native';
+
+import { Button } from 'components/button';
+
 import { styles } from './styles';
 import { DetailsModalProps } from './types';
-import { Button } from 'components/button';
 
 export const DetailsModal = ({ handleClose, open, service }: DetailsModalProps) => {
   if (!open) {

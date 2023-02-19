@@ -1,8 +1,10 @@
-import { useController } from 'react-hook-form';
-import { SelectProps } from 'components/select/types';
-import { styles } from './styles';
 import { useEffect, useState } from 'react';
+import { useController } from 'react-hook-form';
 import DropDownPicker from 'react-native-dropdown-picker';
+
+import { SelectProps } from 'components/select/types';
+
+import { styles } from './styles';
 
 export const Select = ({ name, control, values }: SelectProps) => {
   const [open, setOpen] = useState(false);

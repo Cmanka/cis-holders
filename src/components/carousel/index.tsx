@@ -1,9 +1,10 @@
+import { useRef, useState } from 'react';
 import { Animated, FlatList, View } from 'react-native';
 import { GlobalStyles } from 'styles';
+
 import { CarouselItem } from './carousel-item';
 import { Pagination } from './pagination';
-import { useRef, useState } from 'react';
-import { ViewableItemsChanged, CarouselProps } from './types';
+import { CarouselProps,ViewableItemsChanged } from './types';
 
 export const Carousel = ({ data }: CarouselProps) => {
   const [, setCurrentIndex] = useState(0);

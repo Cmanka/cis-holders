@@ -1,12 +1,13 @@
-import { useModal } from 'utils/hooks/use-modal';
 import { useDispatch, useSelector } from 'react-redux';
+import { ModalType } from 'constants/modal-type';
+import { SortType } from 'constants/sort-type';
+import { StorageKeys } from 'constants/storage-keys';
+import { addKey, removeKey } from 'store/actions/async-storage';
 import { clearServices } from 'store/actions/service';
 import { selectServiceSectionList } from 'store/selectors/service';
-import { ModalType } from 'constants/modal-type';
-import { addKey, removeKey } from 'store/actions/async-storage';
-import { StorageKeys } from 'constants/storage-keys';
+import { useModal } from 'utils/hooks/use-modal';
+
 import { createFilterModal } from 'components/create-filter-modal';
-import { SortType } from 'constants/sort-type';
 
 const Modal = createFilterModal<SortType>();
 

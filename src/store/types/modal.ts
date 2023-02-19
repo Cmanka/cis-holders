@@ -1,5 +1,5 @@
-import { Action } from 'interfaces/action';
 import { ModalType } from 'constants/modal-type';
+import { Action } from 'interfaces/action';
 
 export enum ModalTypes {
   OpenModal = 'OPEN_MODAL',

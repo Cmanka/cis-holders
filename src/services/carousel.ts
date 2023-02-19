@@ -2,7 +2,7 @@ import firestore from '@react-native-firebase/firestore';
 import { FirebaseCollection } from 'constants/firebase-collection';
 import { Carousel } from 'interfaces/carousel';
 
-class ServiceClass {
+class CarouselClass {
   private readonly instance;
 
   constructor() {
@@ -25,4 +25,4 @@ class ServiceClass {
   }
 }
 
-export const carouselInstance = new ServiceClass();
+export const carouselInstance = new CarouselClass();

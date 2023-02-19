@@ -1,19 +1,21 @@
-import { View, ScrollView, ActivityIndicator, Text, Alert } from 'react-native';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { Input } from 'components/input';
-import { styles } from './styles';
-import { Select } from 'components/select';
-import { ServiceType } from 'constants/service-type';
+import { ActivityIndicator, Alert,ScrollView, Text, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { ServiceType } from 'constants/service-type';
+import { Service } from 'interfaces/service';
 import { addService, changeFormStatus } from 'store/actions/service';
 import { selectService } from 'store/selectors/service';
-import { Attachment } from 'components/attachment';
-import { useEffect } from 'react';
-import { Address } from 'components/address';
-import { Service } from 'interfaces/service';
 import { GlobalStyles } from 'styles';
-import { Button } from 'components/button';
 import { DARK } from 'styles/variables';
+
+import { Address } from 'components/address';
+import { Attachment } from 'components/attachment';
+import { Button } from 'components/button';
+import { Input } from 'components/input';
+import { Select } from 'components/select';
+
+import { styles } from './styles';
 
 export const AddServiceScreen = () => {
   const dispatch = useDispatch();

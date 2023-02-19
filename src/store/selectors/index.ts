@@ -1,5 +1,5 @@
-import { AppState } from 'store/reducers';
 import { createSelector } from 'reselect';
+import { AppState } from 'store/reducers';
 
 export const appSelect = (state: AppState) => state;
 

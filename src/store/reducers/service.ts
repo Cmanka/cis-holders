@@ -1,8 +1,8 @@
-import { Service } from 'interfaces/service';
-import { ServiceAction, ServiceTypes } from 'store/types/service';
-import { Status } from 'interfaces/status';
 import { ServiceType } from 'constants/service-type';
 import { SortType } from 'constants/sort-type';
+import { Service } from 'interfaces/service';
+import { Status } from 'interfaces/status';
+import { ServiceAction, ServiceTypes } from 'store/types/service';
 import { sortByName } from 'utils/helpers/sort-by-name';
 
 interface ServiceState {
